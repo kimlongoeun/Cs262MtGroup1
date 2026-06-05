@@ -843,7 +843,7 @@
 
                 <div class="hero-ctas">
                     <a href="/dashboard" class="btn-primary">Start learning →</a>
-                    <a href="/aboutus" class="btn-ghost">About us</a>
+
                 </div>
 
                 <div class="hero-stats">
@@ -992,52 +992,55 @@
     </section>
 
     <!-- ══ PROGRAMS ══ -->
-<section class="section">
-    <div class="section-inner">
-        <span class="label">Community</span>
-        <h2 class="h2">What we <em>offer</em></h2>
+    <section class="section">
+        <div class="section-inner">
+            <span class="label">Community</span>
+            <h2 class="h2">What we <em>offer</em></h2>
 
-        <div class="programs-grid">
+            <div class="programs-grid">
 
-            <div class="prog-card">
-                <div class="prog-badge">Networking</div>
-                <h3>Tech community meetups</h3>
-                <p>Connect with developers, designers, entrepreneurs, and tech enthusiasts through regular networking events, knowledge-sharing sessions, and community gatherings across Cambodia.</p>
+                <div class="prog-card">
+                    <div class="prog-badge">Networking</div>
+                    <h3>Tech community meetups</h3>
+                    <p>Connect with developers, designers, entrepreneurs, and tech enthusiasts through regular networking
+                        events, knowledge-sharing sessions, and community gatherings across Cambodia.</p>
 
-                <div class="prog-meta">
-                    <div class="prog-meta-item"><span>Audience</span><strong>All Levels</strong></div>
-                    <div class="prog-meta-item"><span>Format</span><strong>Hybrid</strong></div>
-                    <div class="prog-meta-item"><span>Schedule</span><strong>Monthly</strong></div>
+                    <div class="prog-meta">
+                        <div class="prog-meta-item"><span>Audience</span><strong>All Levels</strong></div>
+                        <div class="prog-meta-item"><span>Format</span><strong>Hybrid</strong></div>
+                        <div class="prog-meta-item"><span>Schedule</span><strong>Monthly</strong></div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="prog-card">
-                <div class="prog-badge">Events</div>
-                <h3>Workshops & hackathons</h3>
-                <p>Participate in hands-on coding workshops, startup challenges, hackathons, and collaborative projects designed to strengthen practical skills and encourage innovation.</p>
+                <div class="prog-card">
+                    <div class="prog-badge">Events</div>
+                    <h3>Workshops & hackathons</h3>
+                    <p>Participate in hands-on coding workshops, startup challenges, hackathons, and collaborative projects
+                        designed to strengthen practical skills and encourage innovation.</p>
 
-                <div class="prog-meta">
-                    <div class="prog-meta-item"><span>Frequency</span><strong>Regular</strong></div>
-                    <div class="prog-meta-item"><span>Mode</span><strong>In-person</strong></div>
-                    <div class="prog-meta-item"><span>Focus</span><strong>Tech & Innovation</strong></div>
+                    <div class="prog-meta">
+                        <div class="prog-meta-item"><span>Frequency</span><strong>Regular</strong></div>
+                        <div class="prog-meta-item"><span>Mode</span><strong>In-person</strong></div>
+                        <div class="prog-meta-item"><span>Focus</span><strong>Tech & Innovation</strong></div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="prog-card">
-                <div class="prog-badge">Resources</div>
-                <h3>Learning & career growth</h3>
-                <p>Access curated learning resources, mentorship opportunities, career guidance, job postings, and industry insights to support your journey in Cambodia's growing tech ecosystem.</p>
+                <div class="prog-card">
+                    <div class="prog-badge">Resources</div>
+                    <h3>Learning & career growth</h3>
+                    <p>Access curated learning resources, mentorship opportunities, career guidance, job postings, and
+                        industry insights to support your journey in Cambodia's growing tech ecosystem.</p>
 
-                <div class="prog-meta">
-                    <div class="prog-meta-item"><span>Access</span><strong>Open</strong></div>
-                    <div class="prog-meta-item"><span>Language</span><strong>KH / EN</strong></div>
-                    <div class="prog-meta-item"><span>Support</span><strong>Mentorship</strong></div>
+                    <div class="prog-meta">
+                        <div class="prog-meta-item"><span>Access</span><strong>Open</strong></div>
+                        <div class="prog-meta-item"><span>Language</span><strong>KH / EN</strong></div>
+                        <div class="prog-meta-item"><span>Support</span><strong>Mentorship</strong></div>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- ══ PARTNERS ══ -->
     <section style="padding: 2.5rem 2rem; border-top: 1px solid var(--border);">
