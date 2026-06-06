@@ -59,6 +59,7 @@
             outline: none;
             transition: border-color 0.15s;
             resize: vertical;
+            box-sizing: border-box;
         }
 
         .stem-input:focus {
@@ -104,6 +105,22 @@
             border-color: var(--clr-muted);
             color: var(--clr-text);
         }
+
+        .error-msg {
+            font-size: 12px;
+            color: #e05252;
+            margin-top: 0.25rem;
+        }
+
+        .alert-success {
+            font-size: 13px;
+            color: #2e7d32;
+            background: #f0faf0;
+            border: 1px solid #a5d6a7;
+            border-radius: 6px;
+            padding: 0.6rem 0.9rem;
+            margin-bottom: 1rem;
+        }
     </style>
 
     <div class="edit-wrap">
@@ -112,18 +129,30 @@
 
         @auth
             <div class="edit-card">
+
+                @if (session('success'))
+                    <div class="alert-success">{{ session('success') }}</div>
+                @endif
+
                 <form action="/edit-post/{{ $post->id }}" method="POST" class="edit-form">
                     @csrf
                     @method('PUT')
 
                     <div>
                         <label class="field-label" for="edit-title">Title</label>
-                        <input id="edit-title" type="text" name="title" class="stem-input" value="{{ $post->title }}">
+                        <input id="edit-title" type="text" name="title" class="stem-input"
+                            value="{{ old('title', $post->title) }}">
+                        @error('title')
+                            <p class="error-msg">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
                         <label class="field-label" for="edit-body">Content</label>
-                        <textarea id="edit-body" name="body" class="stem-input" rows="8">{{ $post->body }}</textarea>
+                        <textarea id="edit-body" name="body" class="stem-input" rows="8">{{ old('body', $post->body) }}</textarea>
+                        @error('body')
+                            <p class="error-msg">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div class="edit-actions">

@@ -59,7 +59,7 @@
             min-height: 100vh;
             padding-top: var(--nav-h);
             -webkit-font-smoothing: antialiased;
-            font-family: Georgia, 'Times New Roman', serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         /* ── NAV ── */

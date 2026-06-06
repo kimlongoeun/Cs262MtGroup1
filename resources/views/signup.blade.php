@@ -459,32 +459,7 @@
                             <div class="panel-title">Create an account</div>
                             <div class="panel-sub">Start your STEM journey today — it's free.</div>
 
-                            <div class="panel-features">
-                                <div class="feature-item">
-                                    <div class="feature-dot">
-                                        <svg viewBox="0 0 12 12">
-                                            <polyline points="2,6 5,9 10,3" />
-                                        </svg>
-                                    </div>
-                                    Access STEM courses and resources
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-dot">
-                                        <svg viewBox="0 0 12 12">
-                                            <polyline points="2,6 5,9 10,3" />
-                                        </svg>
-                                    </div>
-                                    Track your learning progress
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-dot">
-                                        <svg viewBox="0 0 12 12">
-                                            <polyline points="2,6 5,9 10,3" />
-                                        </svg>
-                                    </div>
-                                    Join the STEMBODIAN community
-                                </div>
-                            </div>
+
 
                             @if ($errors->any())
                                 <div class="alert-stem">
