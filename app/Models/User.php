@@ -3,23 +3,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use App\Models\Post;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use Notifiable;
 
     protected $fillable = [
         'name',
         'email',
         'password',
-        'avatar',
-        'bio',
-        'role',
-        'is_active',
     ];
 
     protected $hidden = [
@@ -27,34 +22,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'is_active' => 'boolean',
-    ];
-
-    // Relationships
-    public function posts()
+    public function usersCoolPosts()
     {
-        return $this->hasMany(Post::class);
-    }
-
-    // Accessor for avatar URL
-    public function getAvatarUrlAttribute()
-    {
-        return $this->avatar
-            ? asset('storage/' . $this->avatar)
-            : 'https://ui-avatars.com/api/?background=0D8F81&color=fff&name=' . urlencode($this->name);
-    }
-
-    // Helper methods
-    public function isAdmin()
-    {
-        return $this->role === 'admin';
-    }
-
-    // Scope for active users
-    public function scopeActive($query)
-    {
-        return $query->where('is_active', true);
+        return $this->hasMany(Post::class, 'user_id');
     }
 }
