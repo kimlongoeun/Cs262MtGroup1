@@ -66,6 +66,30 @@
             border-color: var(--clr-accent);
         }
 
+        /* ── CHANGE 1: styles for image upload area ── */
+        .image-preview {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .file-input {
+            width: 100%;
+            background: var(--clr-bg);
+            border: 1px solid var(--clr-border);
+            border-radius: 6px;
+            padding: 0.55rem 0.9rem;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            color: var(--clr-muted);
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        /* ── end CHANGE 1 ── */
+
         .edit-actions {
             display: flex;
             align-items: center;
@@ -134,7 +158,8 @@
                     <div class="alert-success">{{ session('success') }}</div>
                 @endif
 
-                <form action="/edit-post/{{ $post->id }}" method="POST" class="edit-form">
+                {{-- CHANGE 2: added enctype="multipart/form-data" so file uploads work --}}
+                <form action="/edit-post/{{ $post->id }}" method="POST" class="edit-form" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -154,6 +179,24 @@
                             <p class="error-msg">{{ $message }}</p>
                         @enderror
                     </div>
+
+                    {{-- CHANGE 3: image upload field with current image preview --}}
+                    <div>
+                        <label class="field-label">Featured image</label>
+                        @if ($post->featured_image)
+                            <img src="{{ asset('storage/' . $post->featured_image) }}"
+                                 alt="Current image"
+                                 class="image-preview">
+                            <p style="font-size:11px; color:var(--clr-muted); margin-bottom:0.4rem;">
+                                Upload a new image to replace the current one.
+                            </p>
+                        @endif
+                        <input type="file" name="featured_image" class="file-input" accept="image/png, image/jpeg, image/webp">
+                        @error('featured_image')
+                            <p class="error-msg">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    {{-- end CHANGE 3 --}}
 
                     <div class="edit-actions">
                         <button type="submit" class="btn-stem">Save changes</button>

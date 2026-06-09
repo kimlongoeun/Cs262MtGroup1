@@ -3,23 +3,23 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Schema; // 1. Add this import line
 
 class AppServiceProvider extends ServiceProvider
 {
-    // /
-    //  * Register any application services.
-    //  */
+    /**
+     * Register any application services.
+     */
     public function register(): void
     {
         //
     }
 
-
-    //  * Bootstrap any application services.
-    //  */
+    /**
+     * Bootstrap any application services.
+     */
     public function boot(): void
     {
-        Schema::defaultStringLength(191);
+        Schema::defaultStringLength(191); // 2. Add this line
     }
 }

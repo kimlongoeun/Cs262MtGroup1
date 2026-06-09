@@ -198,30 +198,19 @@
             align-items: center;
             justify-content: center;
             font-size: 40px;
+            overflow: hidden;
         }
 
-        .thumb-science {
-            background: linear-gradient(135deg, #e8f5ee, #d1fae5);
-        }
+        .thumb-science  { background: linear-gradient(135deg, #e8f5ee, #d1fae5); }
+        .thumb-tech     { background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+        .thumb-eng      { background: linear-gradient(135deg, #f3f4f6, #e5e7eb); }
+        .thumb-math     { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+        .thumb-env      { background: linear-gradient(135deg, #ecfdf5, #a7f3d0); }
+        .thumb-health   { background: linear-gradient(135deg, #fdf2f8, #f5d0fe); }
 
-        .thumb-tech {
-            background: linear-gradient(135deg, #eff6ff, #dbeafe);
-        }
-
-        .thumb-eng {
-            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-        }
-
-        .thumb-math {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-        }
-
-        .thumb-env {
-            background: linear-gradient(135deg, #ecfdf5, #a7f3d0);
-        }
-
-        .thumb-health {
-            background: linear-gradient(135deg, #fdf2f8, #f5d0fe);
+        /* ── ADDED: user post thumb fallback colour ── */
+        .thumb-user {
+            background: linear-gradient(135deg, #f0f4ff, #dbeafe);
         }
 
         .news-card-body {
@@ -331,6 +320,17 @@
         .newsletter-btn:hover {
             opacity: 0.9;
         }
+
+        /* ── ADDED: empty state for user posts ── */
+        .empty-posts {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            color: var(--clr-muted);
+            font-size: 13.5px;
+            border: 1px dashed var(--clr-border);
+            border-radius: var(--radius);
+        }
     </style>
 
     <div class="page-wrap">
@@ -352,150 +352,194 @@
             <a class="filter-btn" href="#">Health</a>
         </div>
 
-<!-- FEATURED ARTICLE -->
-<a class="featured-article" href="#">
-    <div class="featured-body">
-        <span class="article-tag">Featured · Science</span>
-        <span class="article-title">Cambodia Launches First National STEM Curriculum for Secondary Schools</span>
-        <p class="article-excerpt">The Ministry of Education, Youth and Sport unveiled a comprehensive STEM
-            framework designed to integrate science, technology, engineering, and mathematics across all secondary
-            schools by 2027, aiming to produce 50,000 STEM graduates annually.</p>
-        <div class="article-meta">
-            <span>Jun 2026</span>
-            <span>·</span>
-            <span>5 min read</span>
+        <!-- FEATURED ARTICLE -->
+        <a class="featured-article" href="#">
+            <div class="featured-body">
+                <span class="article-tag">Featured · Science</span>
+                <span class="article-title">Cambodia Launches First National STEM Curriculum for Secondary Schools</span>
+                <p class="article-excerpt">The Ministry of Education, Youth and Sport unveiled a comprehensive STEM
+                    framework designed to integrate science, technology, engineering, and mathematics across all secondary
+                    schools by 2027, aiming to produce 50,000 STEM graduates annually.</p>
+                <div class="article-meta">
+                    <span>Jun 2026</span>
+                    <span>·</span>
+                    <span>5 min read</span>
+                </div>
+                <span class="read-more">Read article →</span>
+            </div>
+            <div class="featured-img">
+                <img src="https://stemcambodia.ngo/wp-content/uploads/2025/06/6150103721892233908.jpg"
+                     alt="Cambodia STEM Festival students"
+                     style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+            </div>
+        </a>
+
+        <!-- LATEST NEWS -->
+        <div class="section-gap">
+            <p class="section-label">Latest</p>
+            <div class="news-grid">
+
+                <a class="news-card" href="#">
+                    <div class="news-card-thumb thumb-tech">
+                        <img src="https://stemcambodia.ngo/wp-content/uploads/2026/06/707276690_1405230471650614_3640902636218841858_n-1024x1024.jpg"
+                             alt="Coding Bootcamp" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Technology</span>
+                        <p class="news-card-title">Phnom Penh Tech Hub Opens New Coding Bootcamp for Rural Youth</p>
+                        <p class="news-card-meta">May 2026 · 3 min read</p>
+                    </div>
+                </a>
+
+                <a class="news-card" href="#">
+                    <div class="news-card-thumb thumb-math">
+                        <img src="https://stemcambodia.ngo/wp-content/uploads/2026/06/707235737_1405230431650618_8614770210813328930_n-1024x1024.jpg"
+                             alt="Math Olympiad" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Mathematics</span>
+                        <p class="news-card-title">Cambodian Students Win Silver at 2026 Asia-Pacific Math Olympiad</p>
+                        <p class="news-card-meta">May 2026 · 2 min read</p>
+                    </div>
+                </a>
+
+                <a class="news-card" href="#">
+                    <div class="news-card-thumb thumb-env">
+                        <img src="https://stemcambodia.ngo/wp-content/uploads/2026/06/707646851_1405230371650624_3445541354606307499_n-1024x1024.jpg"
+                             alt="Environment Research" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Environment</span>
+                        <p class="news-card-title">RUPP Researchers Develop Low-Cost Water Filtration Using Local Materials</p>
+                        <p class="news-card-meta">Apr 2026 · 4 min read</p>
+                    </div>
+                </a>
+
+                <a class="news-card" href="#">
+                    <div class="news-card-thumb thumb-eng">
+                        <img src="https://stemcambodia.ngo/wp-content/uploads/elementor/thumbs/6150103721892233916-r94j6yc9823pyanpsgi2if2wuafppogkfxwqcdiiio.jpg"
+                             alt="Engineering Students" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Engineering</span>
+                        <p class="news-card-title">Solar-Powered Irrigation System Built by Kampong Cham Engineering Students</p>
+                        <p class="news-card-meta">Apr 2026 · 3 min read</p>
+                    </div>
+                </a>
+
+                <a class="news-card" href="#">
+                    <div class="news-card-thumb thumb-health">
+                        <img src="https://stemcambodia.ngo/wp-content/uploads/elementor/thumbs/6150103721892233909-r94j3myr43kazth45iwg7r7decs3k4annj22e8figw.jpg"
+                             alt="Health Science Research" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Health Science</span>
+                        <p class="news-card-title">IU Medical Faculty Publishes Dengue Fever Early Detection Research</p>
+                        <p class="news-card-meta">Mar 2026 · 5 min read</p>
+                    </div>
+                </a>
+
+                <a class="news-card" href="#">
+                    <div class="news-card-thumb thumb-tech">
+                        <img src="https://stemcambodia.ngo/wp-content/uploads/2025/06/STEM-Mark.png"
+                             alt="STEM AI Program" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Technology</span>
+                        <p class="news-card-title">AI Literacy Program Reaches 12,000 Students Across 6 Provinces</p>
+                        <p class="news-card-meta">Mar 2026 · 3 min read</p>
+                    </div>
+                </a>
+
+            </div>
         </div>
-        <span class="read-more">Read article →</span>
-    </div>
-    <div class="featured-img">
-        <img src="https://stemcambodia.ngo/wp-content/uploads/2025/06/6150103721892233908.jpg"
-             alt="Cambodia STEM Festival students"
-             style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
-    </div>
-</a>
 
-<!-- LATEST NEWS -->
-<div class="section-gap">
-    <p class="section-label">Latest</p>
-    <div class="news-grid">
+        <!-- OLDER ARTICLES -->
+        <div class="section-gap">
+            <p class="section-label">Earlier this year</p>
+            <div class="news-grid">
 
-        <a class="news-card" href="#">
-            <div class="news-card-thumb thumb-tech">
-                <img src="https://stemcambodia.ngo/wp-content/uploads/2026/06/707276690_1405230471650614_3640902636218841858_n-1024x1024.jpg"
-                     alt="Coding Bootcamp" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            <div class="news-card-body">
-                <span class="news-card-tag">Technology</span>
-                <p class="news-card-title">Phnom Penh Tech Hub Opens New Coding Bootcamp for Rural Youth</p>
-                <p class="news-card-meta">May 2026 · 3 min read</p>
-            </div>
-        </a>
+                <a class="news-card" href="#">
+                    <div class="news-card-thumb thumb-science">
+                        <img src="https://stemcambodia.ngo/wp-content/uploads/2025/06/ACSF-Logo-4.png"
+                             alt="ASEAN Space Research" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Science</span>
+                        <p class="news-card-title">Cambodia Joins ASEAN Space Research Network as Observer Member</p>
+                        <p class="news-card-meta">Feb 2026 · 4 min read</p>
+                    </div>
+                </a>
 
-        <a class="news-card" href="#">
-            <div class="news-card-thumb thumb-math">
-                <img src="https://stemcambodia.ngo/wp-content/uploads/2026/06/707235737_1405230431650618_8614770210813328930_n-1024x1024.jpg"
-                     alt="Math Olympiad" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            <div class="news-card-body">
-                <span class="news-card-tag">Mathematics</span>
-                <p class="news-card-title">Cambodian Students Win Silver at 2026 Asia-Pacific Math Olympiad</p>
-                <p class="news-card-meta">May 2026 · 2 min read</p>
-            </div>
-        </a>
+                <a class="news-card" href="#">
+                    <div class="news-card-thumb thumb-eng">
+                        <img src="https://stemcambodia.ngo/wp-content/uploads/2025/06/cropped-STEM-Mark.png"
+                             alt="Bridge Competition" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Engineering</span>
+                        <p class="news-card-title">Bridge Design Competition Draws 200 University Teams Nationwide</p>
+                        <p class="news-card-meta">Jan 2026 · 2 min read</p>
+                    </div>
+                </a>
 
-        <a class="news-card" href="#">
-            <div class="news-card-thumb thumb-env">
-                <img src="https://stemcambodia.ngo/wp-content/uploads/2026/06/707646851_1405230371650624_3445541354606307499_n-1024x1024.jpg"
-                     alt="Environment Research" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            <div class="news-card-body">
-                <span class="news-card-tag">Environment</span>
-                <p class="news-card-title">RUPP Researchers Develop Low-Cost Water Filtration Using Local Materials</p>
-                <p class="news-card-meta">Apr 2026 · 4 min read</p>
-            </div>
-        </a>
+                <a class="news-card" href="#">
+                    <div class="news-card-thumb thumb-math">
+                        <img src="https://stemcambodia.ngo/wp-content/uploads/2025/06/Untitled-design-3.png"
+                             alt="Data Science Degree" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+                    </div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag">Mathematics</span>
+                        <p class="news-card-title">New Data Science Degree Launched at Norton University Phnom Penh</p>
+                        <p class="news-card-meta">Jan 2026 · 3 min read</p>
+                    </div>
+                </a>
 
-        <a class="news-card" href="#">
-            <div class="news-card-thumb thumb-eng">
-                <img src="https://stemcambodia.ngo/wp-content/uploads/elementor/thumbs/6150103721892233916-r94j6yc9823pyanpsgi2if2wuafppogkfxwqcdiiio.jpg"
-                     alt="Engineering Students" style="width:100%;height:100%;object-fit:cover;">
             </div>
-            <div class="news-card-body">
-                <span class="news-card-tag">Engineering</span>
-                <p class="news-card-title">Solar-Powered Irrigation System Built by Kampong Cham Engineering Students</p>
-                <p class="news-card-meta">Apr 2026 · 3 min read</p>
-            </div>
-        </a>
+        </div>
 
-        <a class="news-card" href="#">
-            <div class="news-card-thumb thumb-health">
-                <img src="https://stemcambodia.ngo/wp-content/uploads/elementor/thumbs/6150103721892233909-r94j3myr43kazth45iwg7r7decs3k4annj22e8figw.jpg"
-                     alt="Health Science Research" style="width:100%;height:100%;object-fit:cover;">
-            </div>
-            <div class="news-card-body">
-                <span class="news-card-tag">Health Science</span>
-                <p class="news-card-title">IU Medical Faculty Publishes Dengue Fever Early Detection Research</p>
-                <p class="news-card-meta">Mar 2026 · 5 min read</p>
-            </div>
-        </a>
+        {{-- ─────────────────────────────────────────────────────────
+             ADDED: Community posts from users (dynamic, from DB)
+        ───────────────────────────────────────────────────────── --}}
+        @if(isset($posts) && $posts->count() > 0)
+        <div class="section-gap">
+            <p class="section-label">From the community</p>
+            <div class="news-grid">
+                @foreach($posts as $post)
+                <div class="news-card">
 
-        <a class="news-card" href="#">
-            <div class="news-card-thumb thumb-tech">
-                <img src="https://stemcambodia.ngo/wp-content/uploads/2025/06/STEM-Mark.png"
-                     alt="STEM AI Program" style="width:100%;height:100%;object-fit:contain;padding:8px;">
-            </div>
-            <div class="news-card-body">
-                <span class="news-card-tag">Technology</span>
-                <p class="news-card-title">AI Literacy Program Reaches 12,000 Students Across 6 Provinces</p>
-                <p class="news-card-meta">Mar 2026 · 3 min read</p>
-            </div>
-        </a>
+                    {{-- Thumbnail: show uploaded image if exists, else coloured placeholder --}}
+                    <div class="news-card-thumb thumb-user">
+                        @if($post->featured_image)
+                            <img src="{{ asset('storage/' . $post->featured_image) }}"
+                                 alt="{{ $post->title }}"
+                                 style="width:100%;height:100%;object-fit:cover;">
+                        @else
+                            {{-- Initials fallback --}}
+                            <span style="font-size:28px; font-weight:700; color:#93c5fd; font-family:'DM Mono',monospace;">
+                                {{ strtoupper(substr($post->title, 0, 2)) }}
+                            </span>
+                        @endif
+                    </div>
 
-    </div>
-</div>
+                    <div class="news-card-body">
+                        <span class="news-card-tag">{{ $post->user->name ?? 'Community' }}</span>
+                        <p class="news-card-title">{{ $post->title }}</p>
+                        <p class="article-excerpt" style="font-size:12.5px; margin-top:0.2rem;">
+                            {{ Str::limit($post->body, 100) }}
+                        </p>
+                        <p class="news-card-meta">
+                            {{ $post->created_at->format('M Y') }}
+                        </p>
+                    </div>
 
-<!-- OLDER ARTICLES -->
-<div class="section-gap">
-    <p class="section-label">Earlier this year</p>
-    <div class="news-grid">
-
-        <a class="news-card" href="#">
-            <div class="news-card-thumb thumb-science">
-                <img src="https://stemcambodia.ngo/wp-content/uploads/2025/06/ACSF-Logo-4.png"
-                     alt="ASEAN Space Research" style="width:100%;height:100%;object-fit:contain;padding:8px;">
+                </div>
+                @endforeach
             </div>
-            <div class="news-card-body">
-                <span class="news-card-tag">Science</span>
-                <p class="news-card-title">Cambodia Joins ASEAN Space Research Network as Observer Member</p>
-                <p class="news-card-meta">Feb 2026 · 4 min read</p>
-            </div>
-        </a>
-
-        <a class="news-card" href="#">
-            <div class="news-card-thumb thumb-eng">
-                <img src="https://stemcambodia.ngo/wp-content/uploads/2025/06/cropped-STEM-Mark.png"
-                     alt="Bridge Competition" style="width:100%;height:100%;object-fit:contain;padding:8px;">
-            </div>
-            <div class="news-card-body">
-                <span class="news-card-tag">Engineering</span>
-                <p class="news-card-title">Bridge Design Competition Draws 200 University Teams Nationwide</p>
-                <p class="news-card-meta">Jan 2026 · 2 min read</p>
-            </div>
-        </a>
-
-        <a class="news-card" href="#">
-            <div class="news-card-thumb thumb-math">
-                <img src="https://stemcambodia.ngo/wp-content/uploads/2025/06/Untitled-design-3.png"
-                     alt="Data Science Degree" style="width:100%;height:100%;object-fit:contain;padding:8px;">
-            </div>
-            <div class="news-card-body">
-                <span class="news-card-tag">Mathematics</span>
-                <p class="news-card-title">New Data Science Degree Launched at Norton University Phnom Penh</p>
-                <p class="news-card-meta">Jan 2026 · 3 min read</p>
-            </div>
-        </a>
+        </div>
+        @endif
+        {{-- ── end community posts ── --}}
 
     </div>
-</div>
 
 @endsection
