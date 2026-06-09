@@ -2,9 +2,7 @@
 @section('title', 'STEM Cambodia - Welcome')
 @section('content')
 
-<<<<<<< HEAD
-   
-=======
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap');
 

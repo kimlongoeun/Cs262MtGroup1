@@ -17,24 +17,24 @@ Route::get('/signup', function () {
 Route::get('/science', function () {
     return view('science');
 });
-route::get('/technology', function () {
+Route::get('/technology', function () {
     return view('technology');
 });
-route::get('/mathematics', function () {
+Route::get('/mathematics', function () {
     return view('mathematics');
 });
-route::get('/engineering', function () {
+Route::get('/engineering', function () {
     return view('engineering');
 });
-route::get('/aboutus', function () {
+Route::get('/aboutus', function () {
     return view('aboutus');
 });
-
 
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function () { 
+    // pel mean acc to show all posts if logged in, otherwise show empty dashboard
     $posts = [];
     if (Auth::check()) {
         $posts = Post::where('user_id', Auth::id())->latest()->get();
@@ -49,18 +49,13 @@ Route::get('/edit-post/{post}', [PostController::class, 'showEditScreen']);
 Route::put('/edit-post/{post}', [PostController::class, 'updatePost']);
 Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
 
+// CHANGED: news now pulls all posts from the database
+Route::get('/news', function () {
+    // pel mean acc to show all posts in news 
+    // CHANGED: pull all posts from the database and pass to the news view
+    //
+    $posts = Post::latest()->get();
+    return view('news', ['posts' => $posts]);
+});
 
-Route::get('/news', fn() => view('news'));
 Route::get('/bookmarks', fn() => view('bookmarks'));
-
-
-
-// Route::get('/', [UserController::class, 'index']);
-// Route::get('/dashboard', [UserController::class, 'dashboard'])->middleware('auth');
-// Route::post('/create-post', [PostController::class, 'createPost'])->middleware('auth');
-// Route::get('/edit-post/{post}', [PostController::class, 'showEditScreen'])->middleware('auth');
-// Route::put('/edit-post/{post}', [PostController::class, 'updatePost'])->middleware('auth');
-// Route::delete('/delete-post/{post}', [PostController::class, 'deletePost'])->middleware('auth');
-// Route::post('/register', [UserController::class, 'register']);
-// Route::post('/login', [UserController::class, 'login']);
-// Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');

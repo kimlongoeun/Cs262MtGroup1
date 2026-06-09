@@ -410,6 +410,32 @@
             color: #a1a1a1;
         }
 
+        /* ── CHANGE 1: file input styling ── */
+        .file-input {
+            width: 100%;
+            background: white;
+            border: 1.5px solid #dbe4f0;
+            border-radius: 10px;
+            padding: 0.65rem 1rem;
+            font-size: 13px;
+            color: var(--clr-muted);
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: border-color .2s ease;
+        }
+
+        .file-input:focus {
+            border-color: var(--clr-accent);
+            outline: none;
+        }
+
+        .error-msg {
+            font-size: 12px;
+            color: #e05252;
+            margin-top: 0.2rem;
+        }
+        /* ── end CHANGE 1 ── */
+
         .form-footer {
             display: flex;
             align-items: center;
@@ -692,21 +718,42 @@
                         </span>
                     </div>
                     <div class="panel-body">
-                        <form action="/create-post" method="POST" class="form-stack">
+
+                        {{-- CHANGE 2: added enctype="multipart/form-data" so the image actually uploads --}}
+                        <form action="/create-post" method="POST" class="form-stack" enctype="multipart/form-data">
                             @csrf
                             <div class="field-group">
                                 <label class="field-label" for="new-title">Title</label>
                                 <input id="new-title" type="text" name="title" class="stem-input"
                                     placeholder="Give your post a title" value="{{ old('title') }}">
+                                @error('title')
+                                    <p class="error-msg">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="field-group">
                                 <label class="field-label" for="new-body">Content</label>
-                                <textarea id="new-body" name="body" class="stem-input" rows="10" placeholder="Write something…">{{ old('body') }}</textarea>
+                                <textarea id="new-body" name="body" class="stem-input" rows="10"
+                                    placeholder="Write something…">{{ old('body') }}</textarea>
+                                @error('body')
+                                    <p class="error-msg">{{ $message }}</p>
+                                @enderror
                             </div>
+
+                            {{-- CHANGE 3: image upload field --}}
+                            <div class="field-group">
+                                <label class="field-label" for="new-image">Featured image <span style="font-weight:400; text-transform:none; letter-spacing:0">(optional)</span></label>
+                                <input id="new-image" type="file" name="featured_image" class="file-input" accept="image/png, image/jpeg, image/webp">
+                                @error('featured_image')
+                                    <p class="error-msg">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            {{-- end CHANGE 3 --}}
+
                             <div class="form-footer">
                                 <button type="submit" class="btn-stem">Publish post</button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
